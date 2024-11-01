@@ -1,0 +1,17 @@
+<svg width="40" height="20" viewBox="0 0 40 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Green stripe -->
+  <rect width="40" height="6.66" fill="#0E5A2A"/> <!-- Green stripe -->
+  
+  <!-- Yellow stripe -->
+  <rect y="6.66" width="40" height="6.66" fill="#FFD700"/> <!-- Yellow stripe -->
+  
+  <!-- Red stripe -->
+  <rect y="13.32" width="40" height="6.66" fill="#DA121A"/> <!-- Red stripe -->
+
+  <!-- Blue circle -->
+  <circle cx="20" cy="10" r="5" fill="#0033A0"/>
+
+  <!-- Yellow star (centered within the blue circle) -->
+  <polygon points="20,6 21,9 24,9 21.5,11 22.5,14 20,12 17.5,14 18.5,11 16,9 19,9" fill="#FFD700"/>
+</svg>
+
