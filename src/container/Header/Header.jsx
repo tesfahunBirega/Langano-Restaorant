@@ -15,7 +15,7 @@ const Header = () => (
       <p className="p__opensans mb-4">
         Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat
         morbi facilisis quam scelerisque sapien. Amaseganalo, penatibus etibus!
-        Alemash Ethiopian Restaurant invites you to come and experience the
+        Langano Ethiopian Restaurant invites you to come and experience the
         vibrant tastes of Ethiopia. Come, eat, and enjoy a cultural journey with
         every bite.{" "}
       </p>

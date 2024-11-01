@@ -18,7 +18,7 @@ const AboutUs = () => (
         <h1 className="headtext__cormorant">About Us</h1>
         <img src={images.spoon} alt="about_spoon" className="spoon__img" />
         <p className="p__opensans mx-0 my-6 text-primary-gray">
-          Welcome to Alemash Ethiopian Restaurant, where every meal is an
+          Welcome to Langano Ethiopian Restaurant, where every meal is an
           invitation to experience the flavors, aromas, and hospitality of
           Ethiopia. Our mission is to bring you authentic dishes, made with
           traditional spices and served with the warmth of our heritage. Join us
@@ -41,7 +41,7 @@ const AboutUs = () => (
         <h1 className="headtext__cormorant">Our History</h1>
         <img src={images.spoon} alt="about_spoon" className="spoon__img" />
         <p className="p__opensans mx-0 my-6 text-primary-gray">
-          Alemash Ethiopian Restaurant began as a vision to share Ethiopia’s
+          Langano Ethiopian Restaurant began as a vision to share Ethiopia’s
           rich culinary history. Our recipes have been passed down through
           generations, and each dish reflects our journey, from our roots in
           Ethiopia to our warm presence here. We invite you to taste the
