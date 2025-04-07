@@ -1,51 +1,87 @@
 import React from "react";
-
 import { SubHeading } from "../../components";
 import { images } from "../../constants";
+import { FaQuoteLeft, FaHeart } from "react-icons/fa";
 import "./Chef.css";
 
 const Chef = () => (
-  <div className="app__bg app__wrapper section__padding">
-    <div className="app__wrapper_img app__wrapper_img-reverse">
-      <img src={images.chef} alt="chef_image" />
-    </div>
-    <div className="app__wrapper_info flex justify-start items-start">
-      <SubHeading title="Langano Restourant" />
-      <h1 className="headtext__cormorant">What we believe in</h1>
+  <div className="chef-section" id="chef">
+    <div className="chef-overlay"></div>
 
-      <div className="app__chef-content flex flex-col w-full mt-10">
-        <div className="app__chef-content_quote flex justify-start items-end">
-          <img
-            src={images.quote}
-            alt="quote_image"
-            className="w-[47px] h-[40px] mt-0 mr-4 mb-4 ml-0"
-          />
-          <p className="p__opensans">
-            At LEMA and Beletu Ethiopian Flavor Restaurant, we are dedicated to
-            providing an authentic and delightful dining experience.{" "}
+    {/* Decorative Elements */}
+    <div className="floating-spice one"></div>
+    <div className="floating-spice two"></div>
+    <div className="floating-spice three"></div>
+    <div className="floating-spice four"></div>
+    <div className="floating-spice five"></div>
+
+    <div className="chef-content">
+      <div className="chef-image">
+        <div className="image-frame">
+          <img src={images.chef} alt="chef_image" />
+          <div className="image-accent"></div>
+          <div className="image-overlay">
+            <div className="overlay-content">
+              <FaHeart className="heart-icon" />
+              <span>Passion for Food</span>
+            </div>
+          </div>
+        </div>
+        <div className="image-decoration left"></div>
+        <div className="image-decoration right"></div>
+      </div>
+
+      <div className="chef-info">
+        <div className="section-header">
+          <SubHeading title="Langano Restaurant" />
+          <h1 className="chef-title">
+            <span className="title-highlight">What we</span> believe in
+          </h1>
+          <div className="title-accent"></div>
+        </div>
+
+        <div className="chef-quote">
+          <div className="quote-header">
+            <div className="quote-icon-wrapper">
+              <FaQuoteLeft className="quote-icon" />
+            </div>
+            <p className="quote-text">
+              At LEMA and Beletu Ethiopian Flavor Restaurant, we are dedicated
+              to providing an authentic and delightful dining experience.
+            </p>
+          </div>
+
+          <p className="philosophy-text">
+            Our passion for Ethiopian cuisine drives us to use the freshest
+            ingredients and traditional recipes, ensuring every dish is a
+            celebration of flavor and culture.
           </p>
         </div>
 
-        <p className="p__opensans">
-          {" "}
-          Our passion for Ethiopian cuisine drives us to use the freshest
-          ingredients and traditional recipes, ensuring every dish is a
-          celebration of flavor and culture..{" "}
-        </p>
-      </div>
-
-      <div className="app__chef-sign wi-full mt-10">
-        <p className=" font-CormorantUpright font-normal text-[32px] leading-9 tracking-wider capitalize text-primary-golden ">
-          Lema and Beletu
-        </p>
-        <p className="p__opensans">Chef & Founder</p>
-        <img
-          src={images.sign}
-          alt="sign_image"
-          className="w-4/5 mobile:w-[250px] mt-12 2xl:w-[370px]"
-        />
+        <div className="chef-signature">
+          <div className="signature-text">
+            <h3 className="chef-name">
+              <span className="name-highlight">Lema</span> and{" "}
+              <span className="name-highlight">Beletu</span>
+            </h3>
+            <p className="chef-role">Chef & Founder</p>
+          </div>
+          <div className="signature-image">
+            <img src={images.sign} alt="sign_image" />
+            <div className="signature-accent"></div>
+          </div>
+        </div>
       </div>
     </div>
+
+    {/* Corner Decorations */}
+    <div className="corner-accent top-left"></div>
+    <div className="corner-accent top-right"></div>
+    <div className="corner-accent bottom-left"></div>
+    <div className="corner-accent bottom-right"></div>
+
+    {/* Additional Decorative Elements */}
+    <div className="pattern-overlay"></div>
   </div>
 );
 

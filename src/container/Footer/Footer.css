@@ -1,0 +1,376 @@
+.footer-section {
+  position: relative;
+  background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
+  padding: 6rem 2rem 2rem;
+  overflow: hidden;
+}
+
+.footer-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  pointer-events: none;
+}
+
+/* Floating Decorative Elements */
+.floating-spice {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #d4af37;
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.4;
+  animation: float 8s infinite ease-in-out;
+}
+
+.floating-spice.one {
+  top: 15%;
+  left: 10%;
+}
+
+.floating-spice.two {
+  top: 45%;
+  right: 15%;
+  animation-delay: -3s;
+}
+
+.floating-spice.three {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: -5s;
+}
+
+/* Footer Content */
+.footer-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 4rem auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+/* Footer Columns */
+.footer-column {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-column.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Section Headers */
+.section-header {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.title-accent {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 1rem 0;
+}
+
+/* Contact Info */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-label {
+  color: #d4af37;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+}
+
+.info-item p {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Logo Section */
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.restaurant-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3.5rem;
+  color: #d4af37;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.logo-accent {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.restaurant-quote {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+.spoon-decoration {
+  margin: 1rem 0;
+  transform: rotate(180deg);
+}
+
+.spoon-decoration img {
+  width: 45px;
+  filter: brightness(0) saturate(100%) invert(76%) sepia(71%) saturate(394%)
+    hue-rotate(356deg) brightness(89%) contrast(90%);
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social-link {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4af37;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.social-link:hover {
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateY(-3px);
+}
+
+.icon-accent {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #d4af37;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(1.2);
+  transition: all 0.3s ease;
+}
+
+.social-link:hover .icon-accent {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hours Info */
+.hours-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hours-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hours-group h3 {
+  color: #d4af37;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+}
+
+.hours-group p {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  position: relative;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.copyright {
+  text-align: center;
+}
+
+.copyright p {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+}
+
+.copyright-accent {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 1rem auto;
+}
+
+.disclaimer {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Corner Decorations */
+.corner-accent {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0.2;
+}
+
+.corner-accent.top-left {
+  top: 30px;
+  left: 30px;
+  border-top: 2px solid #d4af37;
+  border-left: 2px solid #d4af37;
+}
+
+.corner-accent.top-right {
+  top: 30px;
+  right: 30px;
+  border-top: 2px solid #d4af37;
+  border-right: 2px solid #d4af37;
+}
+
+.corner-accent.bottom-left {
+  bottom: 30px;
+  left: 30px;
+  border-bottom: 2px solid #d4af37;
+  border-left: 2px solid #d4af37;
+}
+
+.corner-accent.bottom-right {
+  bottom: 30px;
+  right: 30px;
+  border-bottom: 2px solid #d4af37;
+  border-right: 2px solid #d4af37;
+}
+
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, -10px);
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .footer-column {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .title-accent {
+    margin: 1rem auto;
+  }
+
+  .contact-info {
+    align-items: center;
+  }
+
+  .info-item {
+    align-items: center;
+  }
+
+  .hours-info {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-section {
+    padding: 4rem 1rem 2rem;
+  }
+
+  .restaurant-name {
+    font-size: 3rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .corner-accent {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .restaurant-name {
+    font-size: 2.5rem;
+  }
+
+  .restaurant-quote {
+    font-size: 1rem;
+  }
+
+  .social-link {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .corner-accent {
+    width: 40px;
+    height: 40px;
+  }
+}

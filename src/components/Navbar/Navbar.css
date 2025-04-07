@@ -1,59 +1,153 @@
-/* .app__navbar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background: var(--color-black);
+/* Base navbar styles */
+.app__navbar {
+  @apply w-full flex justify-between items-center px-8 py-4 transition-all duration-300;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
 }
 
+/* Logo styles */
 .app__navbar-logo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  @apply flex justify-start items-center;
 }
 
 .app__navbar-logo img {
-    width: 150px;
-    height: auto;
+  @apply w-[150px] h-auto transition-transform duration-300 hover:scale-105;
 }
 
+/* Navigation links container */
 .app__navbar-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    list-style: none;
+  @apply flex justify-center items-center flex-1 list-none;
 }
 
+/* Individual navigation links */
 .app__navbar-links li {
-    margin: 0 1rem;
-    cursor: pointer;
+  @apply mx-4 cursor-pointer relative;
 }
 
-.app__navbar-links li:hover {
-    color: var(--color-grey);
+.app__navbar-links li a {
+  @apply text-white text-lg font-medium transition-all duration-300;
+  position: relative;
 }
 
+.app__navbar-links li a::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+  background-color: #d4af37; /* Golden color */
+}
+
+.app__navbar-links li a:hover::after {
+  @apply w-full;
+}
+
+.app__navbar-links li:hover a {
+  color: #d4af37; /* Golden color */
+}
+
+/* Login section */
 .app__navbar-login {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  @apply flex justify-end items-center;
 }
 
-.app__navbar-login a{
-    margin: 0 1rem;
-    text-decoration: none;
-    transition: 0.5s ease;
+.app__navbar-login a {
+  @apply mx-4 no-underline transition-all duration-300 relative;
 }
 
-.app__navbar-login a:hover {
-    border-bottom: 1px solid var(--color-golden);
-} */
+.app__navbar-login a::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+  background-color: #d4af37; /* Golden color */
+}
 
+.app__navbar-login a:hover::after {
+  @apply w-full;
+}
+
+/* Separator line */
 .line {
-    width: 1px;
-    height: 30px;
-    margin: 0 5px;
-    background-color: var(--color-grey);
+  @apply w-px h-[30px] mx-2;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Mobile navigation styles */
+.mobile-nav-link {
+  @apply text-white text-xl font-medium py-3 transition-all duration-300 block relative;
+}
+
+.mobile-nav-link::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300;
+  background-color: #d4af37; /* Golden color */
+}
+
+.mobile-nav-link:hover::after {
+  @apply w-full;
+}
+
+.mobile-nav-link:hover {
+  color: #d4af37; /* Golden color */
+}
+
+/* Mobile menu animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.mobile-menu-enter {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full transition-colors duration-300;
+  background-color: #d4af37; /* Golden color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-white;
+}
+
+/* Glass effect for navbar */
+.glass-effect {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Button styles */
+.nav-button {
+  @apply px-6 py-2 rounded-full transition-all duration-300;
+  background: linear-gradient(45deg, #d4af37, #ffd700);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Mobile menu backdrop */
+.mobile-backdrop {
+  @apply fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300;
+}
+
+/* Mobile menu container */
+.mobile-menu {
+  @apply fixed inset-y-0 right-0 w-64 bg-black/95 p-6 transform transition-transform duration-300;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
 }

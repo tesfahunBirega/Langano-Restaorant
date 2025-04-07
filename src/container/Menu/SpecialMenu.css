@@ -1,0 +1,384 @@
+.menu-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
+  padding: 6rem 2rem;
+  overflow: hidden;
+}
+
+.menu-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+/* Floating Decorative Elements */
+.floating-spice {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(1px);
+  animation: float 6s infinite ease-in-out;
+}
+
+.floating-spice.one {
+  top: 15%;
+  left: 10%;
+}
+
+.floating-spice.two {
+  top: 45%;
+  right: 15%;
+  animation-delay: -2s;
+}
+
+.floating-spice.three {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: -4s;
+}
+
+/* Header Styles */
+.menu-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.menu-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4rem;
+  color: #ffffff;
+  margin: 1rem 0;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+}
+
+.title-underline {
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 1.5rem auto;
+  position: relative;
+}
+
+.title-underline::before,
+.title-underline::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.title-underline::before {
+  left: 0;
+}
+
+.title-underline::after {
+  right: 0;
+}
+
+/* Menu Content */
+.menu-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Menu Columns */
+.menu-column {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.4s ease;
+}
+
+.menu-column:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.column-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.column-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.5rem;
+  color: #d4af37;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.column-accent {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 0 auto;
+}
+
+/* Menu Items */
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.menu-item-wrapper {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.menu-item-wrapper:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.menu-item-wrapper:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.menu-item-wrapper:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.menu-item-wrapper:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.menu-item-wrapper:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* Menu Images */
+.menu-images {
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.image-container {
+  perspective: 1000px;
+}
+
+.image-frame {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.image-container:hover .image-frame {
+  transform: rotateY(5deg) translateZ(20px);
+}
+
+.menu-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.1));
+  border-radius: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+/* View More Button */
+.menu-footer {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.view-more-button {
+  background: transparent;
+  border: 2px solid #d4af37;
+  color: #d4af37;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.view-more-button:hover {
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.button-glow {
+  position: absolute;
+  inset: 0;
+  background: #d4af37;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.view-more-button:hover .button-glow {
+  transform: scaleX(1);
+}
+
+/* Corner Decorations */
+.corner-decoration {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0.2;
+}
+
+.corner-decoration.top-left {
+  top: 20px;
+  left: 20px;
+  border-top: 2px solid #d4af37;
+  border-left: 2px solid #d4af37;
+}
+
+.corner-decoration.top-right {
+  top: 20px;
+  right: 20px;
+  border-top: 2px solid #d4af37;
+  border-right: 2px solid #d4af37;
+}
+
+.corner-decoration.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  border-bottom: 2px solid #d4af37;
+  border-left: 2px solid #d4af37;
+}
+
+.corner-decoration.bottom-right {
+  bottom: 20px;
+  right: 20px;
+  border-bottom: 2px solid #d4af37;
+  border-right: 2px solid #d4af37;
+}
+
+/* Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, -10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .menu-title {
+    font-size: 3.5rem;
+  }
+
+  .menu-content {
+    padding: 0 1rem;
+  }
+
+  .column-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .menu-content {
+    flex-direction: column;
+  }
+
+  .menu-images {
+    order: -1;
+    flex-direction: row;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .image-container {
+    flex: 1;
+  }
+
+  .menu-column {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu-section {
+    padding: 4rem 1rem;
+  }
+
+  .menu-title {
+    font-size: 3rem;
+  }
+
+  .menu-images {
+    flex-direction: column;
+  }
+
+  .menu-image {
+    height: 200px;
+  }
+
+  .corner-decoration {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .menu-title {
+    font-size: 2.5rem;
+  }
+
+  .column-title {
+    font-size: 2rem;
+  }
+
+  .menu-column {
+    padding: 1.5rem;
+  }
+
+  .view-more-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}

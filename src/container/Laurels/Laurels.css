@@ -1,0 +1,513 @@
+.laurels-section {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #1a1a1a, #0c0c0c);
+  padding: 6rem 2rem;
+  overflow: hidden;
+}
+
+.laurels-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  pointer-events: none;
+}
+
+/* Floating Stars */
+.floating-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #d4af37;
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.6;
+  animation: twinkle 4s infinite ease-in-out;
+}
+
+.floating-star::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: inherit;
+  border-radius: inherit;
+  filter: blur(2px);
+  opacity: 0.3;
+}
+
+.floating-star.one {
+  top: 15%;
+  left: 10%;
+}
+
+.floating-star.two {
+  top: 45%;
+  right: 15%;
+  animation-delay: -1s;
+}
+
+.floating-star.three {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: -2s;
+}
+
+/* Content Layout */
+.laurels-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.laurels-info {
+  flex: 1;
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 4rem;
+}
+
+.laurels-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4rem;
+  color: #ffffff;
+  margin: 1rem 0;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.title-accent {
+  width: 120px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.title-accent::before {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #d4af37;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Awards Grid */
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.award-wrapper {
+  opacity: 0;
+  animation: slideIn 0.8s ease forwards;
+}
+
+/* Award Card */
+.award-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 15px;
+  transition: all 0.4s ease;
+}
+
+.award-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.award-icon {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.award-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-glow {
+  position: absolute;
+  inset: -5px;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 175, 55, 0.2),
+    transparent 70%
+  );
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.award-card:hover .icon-glow {
+  opacity: 1;
+}
+
+.award-content {
+  flex: 1;
+}
+
+.award-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  color: #d4af37;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.award-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-family: "Open Sans", sans-serif;
+}
+
+.award-accent {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #d4af37, transparent);
+  margin-top: 1rem;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: all 0.4s ease;
+}
+
+.award-card:hover .award-accent {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Image Section */
+.laurels-image {
+  flex: 1;
+  position: relative;
+}
+
+.image-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.6s ease;
+}
+
+.image-frame:hover img {
+  transform: scale(1.05);
+}
+
+.image-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    transparent,
+    rgba(212, 175, 55, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-frame:hover .image-glow {
+  opacity: 1;
+}
+
+/* Corner Accents */
+.corner-accent {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0.2;
+}
+
+.corner-accent.top-left {
+  top: 20px;
+  left: 20px;
+  border-top: 2px solid #d4af37;
+  border-left: 2px solid #d4af37;
+}
+
+.corner-accent.top-right {
+  top: 20px;
+  right: 20px;
+  border-top: 2px solid #d4af37;
+  border-right: 2px solid #d4af37;
+}
+
+.corner-accent.bottom-left {
+  bottom: 20px;
+  left: 20px;
+  border-bottom: 2px solid #d4af37;
+  border-left: 2px solid #d4af37;
+}
+
+.corner-accent.bottom-right {
+  bottom: 20px;
+  right: 20px;
+  border-bottom: 2px solid #d4af37;
+  border-right: 2px solid #d4af37;
+}
+
+/* Animations */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Food Gallery Styles */
+.food-gallery {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.5s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-overlay h3 {
+  color: #ffffff;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-overlay p {
+  color: #d4af37;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.gallery-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover::before {
+  opacity: 1;
+}
+
+.gallery-item.main {
+  position: relative;
+}
+
+.gallery-item.main::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  border-top: 2px solid #d4af37;
+  border-right: 2px solid #d4af37;
+  opacity: 0.5;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+  .laurels-content {
+    flex-direction: column;
+  }
+
+  .laurels-title {
+    font-size: 3.5rem;
+  }
+
+  .awards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .gallery-grid {
+    gap: 1.5rem;
+  }
+
+  .gallery-item img {
+    height: 350px;
+  }
+
+  .gallery-overlay h3 {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .laurels-section {
+    padding: 4rem 1rem;
+  }
+
+  .laurels-title {
+    font-size: 3rem;
+  }
+
+  .award-card {
+    padding: 1.2rem;
+  }
+
+  .award-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .award-title {
+    font-size: 1.3rem;
+  }
+
+  .corner-accent {
+    width: 60px;
+    height: 60px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .gallery-item img {
+    height: 300px;
+  }
+
+  .gallery-overlay {
+    padding: 1.5rem;
+  }
+
+  .gallery-overlay h3 {
+    font-size: 1.6rem;
+  }
+
+  .gallery-overlay p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .laurels-title {
+    font-size: 2.5rem;
+  }
+
+  .awards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .award-card {
+    padding: 1rem;
+  }
+
+  .gallery-item img {
+    height: 250px;
+  }
+
+  .gallery-overlay {
+    padding: 1rem;
+  }
+
+  .gallery-overlay h3 {
+    font-size: 1.4rem;
+  }
+}

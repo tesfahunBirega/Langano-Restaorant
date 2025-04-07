@@ -1,21 +1,4 @@
-.app__gallery-images_container {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.app__gallery-images_container::-webkit-scrollbar {
-  display: none;
-}
-
-.app__gallery-images_card:hover img {
-  opacity: 0.35;
-}
-
-.app__gallery-images_card:hover .gallery__image-icon {
-  opacity: 1;
-}
-
-.gallery-section {
+.findus-section {
   position: relative;
   min-height: 100vh;
   background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
@@ -23,7 +6,7 @@
   overflow: hidden;
 }
 
-.gallery-overlay {
+.findus-overlay {
   position: absolute;
   inset: 0;
   background: radial-gradient(
@@ -34,37 +17,37 @@
   pointer-events: none;
 }
 
-/* Floating Accents */
-.floating-accent {
+/* Floating Decorative Elements */
+.floating-spice {
   position: absolute;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   background: #d4af37;
   border-radius: 50%;
-  filter: blur(2px);
+  filter: blur(1px);
   opacity: 0.4;
   animation: float 8s infinite ease-in-out;
 }
 
-.floating-accent.one {
-  top: 15%;
-  left: 10%;
+.floating-spice.one {
+  top: 20%;
+  left: 15%;
 }
 
-.floating-accent.two {
-  top: 45%;
-  right: 15%;
+.floating-spice.two {
+  top: 50%;
+  right: 10%;
   animation-delay: -3s;
 }
 
-.floating-accent.three {
-  bottom: 20%;
-  left: 20%;
+.floating-spice.three {
+  bottom: 25%;
+  left: 25%;
   animation-delay: -5s;
 }
 
 /* Content Layout */
-.gallery-content {
+.findus-content {
   position: relative;
   z-index: 1;
   max-width: 1400px;
@@ -74,18 +57,17 @@
   align-items: center;
 }
 
-/* Gallery Info */
-.gallery-info {
+/* Contact Info */
+.findus-info {
   flex: 1;
   padding: 2rem;
-  max-width: 600px;
 }
 
 .section-header {
   margin-bottom: 3rem;
 }
 
-.gallery-title {
+.findus-title {
   font-family: "Cormorant Garamond", serif;
   font-size: 4rem;
   color: #ffffff;
@@ -102,16 +84,78 @@
   position: relative;
 }
 
-.gallery-description {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.2rem;
-  line-height: 1.8;
-  font-family: "Open Sans", sans-serif;
-  margin-bottom: 2.5rem;
+/* Contact Details */
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
-/* Gallery Button */
-.gallery-button {
+.contact-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  padding: 1rem;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(10px);
+}
+
+.contact-icon {
+  font-size: 1.8rem;
+  color: #d4af37;
+  flex-shrink: 0;
+}
+
+.contact-text {
+  flex: 1;
+}
+
+.contact-text h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.contact-text p {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Hours Grid */
+.hours-grid {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.hours-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.hours-item span {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+}
+
+.hours-item span:last-child {
+  color: #d4af37;
+}
+
+/* Button */
+.findus-button {
   position: relative;
   padding: 1rem 2.5rem;
   background: transparent;
@@ -124,7 +168,7 @@
   transition: all 0.3s ease;
 }
 
-.gallery-button:hover {
+.findus-button:hover {
   color: #ffffff;
   border-color: #ffffff;
 }
@@ -142,41 +186,19 @@
   transition: transform 0.6s ease;
 }
 
-.gallery-button:hover .button-accent {
+.findus-button:hover .button-accent {
   transform: translateX(100%);
 }
 
-/* Gallery Images */
-.gallery-images {
-  flex: 1.5;
+/* Image Section */
+.findus-image {
+  flex: 1;
   position: relative;
-}
-
-.images-container {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: scroll;
-  padding: 1rem;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.images-container::-webkit-scrollbar {
-  display: none;
-}
-
-.image-card {
-  flex: 0 0 auto;
-  width: 300px;
-  height: 400px;
 }
 
 .image-frame {
   position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   transition: all 0.5s ease;
@@ -189,73 +211,27 @@
 
 .image-frame img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  display: block;
+  transform: scale(1);
   transition: transform 0.6s ease;
 }
 
 .image-frame:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-.image-overlay {
+.image-accent {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  border: 2px solid rgba(212, 175, 55, 0.2);
+  border-radius: 20px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.image-frame:hover .image-overlay {
+.image-frame:hover .image-accent {
   opacity: 1;
-}
-
-.instagram-icon {
-  font-size: 2.5rem;
-  color: #ffffff;
-}
-
-.view-text {
-  color: #ffffff;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
-}
-
-/* Navigation Buttons */
-.gallery-navigation {
-  position: absolute;
-  bottom: -2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 1rem;
-  z-index: 2;
-}
-
-.nav-button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(212, 175, 55, 0.1);
-  border: 2px solid #d4af37;
-  color: #d4af37;
-  font-size: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.nav-button:hover {
-  background: #d4af37;
-  color: #ffffff;
-  transform: scale(1.1);
 }
 
 /* Corner Decorations */
@@ -307,37 +283,46 @@
 
 /* Responsive Design */
 @media screen and (max-width: 1200px) {
-  .gallery-content {
+  .findus-content {
     flex-direction: column;
     gap: 3rem;
   }
 
-  .gallery-info {
+  .findus-info {
     text-align: center;
-    padding: 1rem;
   }
 
   .title-accent {
     margin: 1.5rem auto;
   }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hours-grid {
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .gallery-section {
+  .findus-section {
     padding: 4rem 1rem;
   }
 
-  .gallery-title {
+  .findus-title {
     font-size: 3rem;
   }
 
-  .gallery-description {
-    font-size: 1rem;
+  .contact-text h3 {
+    font-size: 1.3rem;
   }
 
-  .image-card {
-    width: 250px;
-    height: 350px;
+  .contact-text p,
+  .hours-item span {
+    font-size: 0.9rem;
   }
 
   .corner-accent {
@@ -347,18 +332,17 @@
 }
 
 @media screen and (max-width: 480px) {
-  .gallery-title {
+  .findus-title {
     font-size: 2.5rem;
   }
 
-  .image-card {
-    width: 220px;
-    height: 300px;
+  .contact-icon {
+    font-size: 1.5rem;
   }
 
-  .nav-button {
-    width: 40px;
-    height: 40px;
-    font-size: 1.5rem;
+  .hours-item {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
   }
 }

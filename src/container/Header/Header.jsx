@@ -1,37 +1,85 @@
 import React from "react";
+import { FaUtensils } from "react-icons/fa";
+import { BsClock, BsTelephone } from "react-icons/bs";
+import { GoLocation } from "react-icons/go";
 
-import { SubHeading } from "../../components";
 import { images } from "../../constants";
 import "./Header.css";
 
-const Header = () => (
-  <div
-    className="bg-primary-black app__wrapper section__padding font-CormorantUpright text-primary-golden"
-    id="home"
-  >
-    <div className="flex-1 w-full flex items-start justify-center flex-col">
-      <SubHeading title="Chase the new flavour" />
-      <h1 className="headtext__cormorant font-bold mb-4">Restourant Langano</h1>
-      <p className="p__opensans mb-4">
-        Sit tellus lobortis sed senectus vivamus molestie. Condimentum volutpat
-        morbi facilisis quam scelerisque sapien. Amaseganalo, penatibus etibus!
-        Langano Ethiopian Restaurant invites you to come and experience the
-        vibrant tastes of Ethiopia. Come, eat, and enjoy a cultural journey with
-        every bite.{" "}
-      </p>
-      <button type="button" className="custom__button">
-        Explore Menu
-      </button>
-    </div>
+const Header = () => {
+  return (
+    <div className="header-container" id="home">
+      <div className="header-overlay"></div>
 
-    <div className="app__wrapper_img w-full p-4">
-      <img
-        src={images.welcome}
-        alt="header_img"
-        className="w-full h-[300px] lg:w-[100%] lg:h-[100px] xl:w-[65%] xl:h-[300px] 2xl:w-[76.67%] 2xl:h-[300px] object-cover"
-      />
+      {/* Left circular image */}
+      <div className="circular-image left">
+        <img src={images.welcome} alt="Ethiopian Dish" />
+      </div>
+
+      <div className="header-content">
+        <div className="header-text">
+          <div className="welcome-text">
+            <span className="welcome-line">WELCOME TO</span>
+          </div>
+          <h1 className="header-title">LANGANO</h1>
+          <p className="header-description">
+            Experience the authentic flavors of Ethiopian cuisine in a warm and
+            inviting atmosphere. Our chefs prepare traditional dishes with the
+            finest ingredients, bringing the rich culinary heritage of Ethiopia
+            to your table.
+          </p>
+
+          <div className="header-buttons">
+            <a href="#menu" className="header-button menu-button">
+              <FaUtensils className="button-icon" />
+              View Menu
+            </a>
+            <a href="#contact" className="header-button reserve-button">
+              <BsTelephone className="button-icon" />
+              Reserve a Table
+            </a>
+          </div>
+
+          <div className="info-cards">
+            <div className="info-card">
+              <div className="info-icon">
+                <BsClock />
+              </div>
+              <div className="info-content">
+                <h3>Opening Hours</h3>
+                <p>Mon-Sun: 11:00 AM - 10:00 PM</p>
+              </div>
+            </div>
+
+            <div className="info-card">
+              <div className="info-icon">
+                <GoLocation />
+              </div>
+              <div className="info-content">
+                <h3>Location</h3>
+                <p>123 Restaurant Street, City</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="header-image">
+          <div className="main-image-container">
+            <img
+              src={images.welcome}
+              alt="Ethiopian Cuisine"
+              className="main-image"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Right circular image */}
+      <div className="circular-image right">
+        <img src={images.welcome} alt="Ethiopian Dish" />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Header;
