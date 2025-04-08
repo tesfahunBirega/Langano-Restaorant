@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  background-color: #000000;
+  background: linear-gradient(to bottom, #0c0c0c, #1a1a1a);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,16 +12,78 @@
 
 .header-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: radial-gradient(
     circle at center,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.95)
+    transparent 0%,
+    rgba(0, 0, 0, 0.7) 100%
   );
-  z-index: 1;
+  pointer-events: none;
+}
+
+/* Floating Decorative Elements */
+.floating-spice {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #d4af37;
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.4;
+  animation: float 8s infinite ease-in-out;
+}
+
+.floating-spice.one {
+  top: 15%;
+  left: 10%;
+}
+
+.floating-spice.two {
+  top: 45%;
+  right: 15%;
+  animation-delay: -3s;
+}
+
+.floating-spice.three {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: -5s;
+}
+
+/* Corner Decorations */
+.corner-accent {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  opacity: 0.2;
+}
+
+.corner-accent.top-left {
+  top: 30px;
+  left: 30px;
+  border-top: 2px solid #d4af37;
+  border-left: 2px solid #d4af37;
+}
+
+.corner-accent.top-right {
+  top: 30px;
+  right: 30px;
+  border-top: 2px solid #d4af37;
+  border-right: 2px solid #d4af37;
+}
+
+.corner-accent.bottom-left {
+  bottom: 30px;
+  left: 30px;
+  border-bottom: 2px solid #d4af37;
+  border-left: 2px solid #d4af37;
+}
+
+.corner-accent.bottom-right {
+  bottom: 30px;
+  right: 30px;
+  border-bottom: 2px solid #d4af37;
+  border-right: 2px solid #d4af37;
 }
 
 .header-content {
@@ -58,14 +120,10 @@
   padding-right: 3rem;
 }
 
-.welcome-line::after {
-  content: "";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  width: 2rem;
+.welcome-accent {
+  width: 60px;
   height: 2px;
-  background: #d4af37;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
 }
 
 .header-title {
@@ -73,8 +131,16 @@
   font-size: 5rem;
   font-weight: 700;
   color: #d4af37;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   letter-spacing: 6px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.title-accent {
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 1rem 0;
 }
 
 .header-description {
@@ -94,6 +160,7 @@
 }
 
 .header-button {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 0.8rem;
@@ -104,6 +171,7 @@
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 
 .menu-button {
@@ -131,6 +199,21 @@
 
 .button-icon {
   font-size: 1.2rem;
+}
+
+.button-accent {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #d4af37;
+  border-radius: 50px;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+.header-button:hover .button-accent {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Info Cards */
@@ -180,6 +263,7 @@
   color: rgba(255, 255, 255, 0.7);
   font-family: "Open Sans", sans-serif;
   font-size: 0.9rem;
+  line-height: 1.4;
 }
 
 /* Image Styles */
@@ -196,11 +280,65 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
 .main-image {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 15px;
+  transition: transform 0.5s ease;
+}
+
+.image-frame:hover .main-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-frame:hover .image-overlay {
+  opacity: 1;
+}
+
+.overlay-icon {
+  font-size: 2rem;
+  color: #d4af37;
+}
+
+.overlay-text {
+  color: #ffffff;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.image-accent {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+}
+
+.image-accent.top {
+  top: 0;
+}
+
+.image-accent.bottom {
+  bottom: 0;
 }
 
 .circular-image {
@@ -230,6 +368,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.circular-image:hover img {
+  transform: scale(1.1);
 }
 
 @keyframes float {

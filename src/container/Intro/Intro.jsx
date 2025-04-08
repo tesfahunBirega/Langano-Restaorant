@@ -1,8 +1,8 @@
-import React from 'react';
-import { BsFillPlayFill, BsPauseFill } from 'react-icons/bs';
+import React from "react";
+import { BsFillPlayFill, BsPauseFill } from "react-icons/bs";
 
-import { meal } from '../../constants';
-import './Intro.css';
+import { meal } from "../../constants";
+import "./Intro.css";
 
 const Intro = () => {
   const [playVideo, setPlayVideo] = React.useState(false);
@@ -17,7 +17,7 @@ const Intro = () => {
         loop
         controls={false}
         muted
-        className='w-full h-full object-cover'
+        className="w-full h-full object-cover"
       />
       <div className="absolute inset-0 bg-[rgba(0,0,0,0.65)] flex__center">
         <div
@@ -32,9 +32,9 @@ const Intro = () => {
           }}
         >
           {playVideo ? (
-            <BsPauseFill className='text-primary-white text-[30px]' />
+            <BsPauseFill className="text-primary-white text-[30px]" />
           ) : (
-            <BsFillPlayFill className='text-primary-white text-[30px]' />
+            <BsFillPlayFill className="text-primary-white text-[30px]" />
           )}
         </div>
       </div>

@@ -38,7 +38,7 @@ const Laurels = () => (
           </div>
         </div>
         <div className="gallery-item">
-          <img src={images.IMG_20241028_WA0008} alt="Ethiopian Cuisine" />
+          <img src={images.welcome} alt="Ethiopian Cuisine" />
           <div className="gallery-overlay">
             <h3>Special Combo</h3>
             <p>A feast of colors and tastes</p>
@@ -70,7 +70,7 @@ const Laurels = () => (
 
       <div className="laurels-image">
         <div className="image-frame">
-          <img src={images.laurels} alt="laurels_img" />
+          <img src={images.welcome} alt="laurels_img" />
           <div className="image-glow"></div>
         </div>
       </div>

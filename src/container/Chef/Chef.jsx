@@ -18,7 +18,7 @@ const Chef = () => (
     <div className="chef-content">
       <div className="chef-image">
         <div className="image-frame">
-          <img src={images.chef} alt="chef_image" />
+          <img src={images.findus} alt="chef_image" />
           <div className="image-accent"></div>
           <div className="image-overlay">
             <div className="overlay-content">
@@ -67,7 +67,6 @@ const Chef = () => (
             <p className="chef-role">Chef & Founder</p>
           </div>
           <div className="signature-image">
-            <img src={images.sign} alt="sign_image" />
             <div className="signature-accent"></div>
           </div>
         </div>

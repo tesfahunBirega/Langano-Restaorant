@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaUtensils } from "react-icons/fa";
 import { BsCalendarCheck } from "react-icons/bs";
 
 import images from "../../constants/images";
@@ -10,6 +10,7 @@ import "./Navbar.css";
 const Navbar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,53 +25,83 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleLinkClick = (link) => {
+    setActiveLink(link);
+    setToggleMenu(false);
+  };
+
+  const handleBookTable = (e) => {
+    e.preventDefault();
+    // Add your booking functionality here
+    console.log("Booking table...");
+    // You can add a modal or redirect to a booking page
+  };
+
   return (
     <nav className={`app__navbar ${isScrolled ? "glass-effect" : ""}`}>
       <div className="app__navbar-logo">
-        <h1 className="font-serif text-4xl font-bold text-white tracking-wider hover:text-[#D4AF37] transition-colors duration-300">
-          LANGANO
-        </h1>
+        <div className="logo-container">
+          <FaUtensils className="logo-icon" />
+          <h1 className="logo-text">LANGANO</h1>
+        </div>
       </div>
 
       <ul className="app__navbar-links">
-        <li>
-          <a href="#home">Home</a>
+        <li className={activeLink === "home" ? "active" : ""}>
+          <a href="#home" onClick={() => handleLinkClick("home")}>
+            <span className="nav-text">Home</span>
+            <div className="nav-accent"></div>
+          </a>
         </li>
-        <li>
-          <a href="#about">About</a>
+        <li className={activeLink === "about" ? "active" : ""}>
+          <a href="#about" onClick={() => handleLinkClick("about")}>
+            <span className="nav-text">About</span>
+            <div className="nav-accent"></div>
+          </a>
         </li>
-        <li>
-          <a href="#menu">Menu</a>
+        <li className={activeLink === "menu" ? "active" : ""}>
+          <a href="#menu" onClick={() => handleLinkClick("menu")}>
+            <span className="nav-text">Menu</span>
+            <div className="nav-accent"></div>
+          </a>
         </li>
-        <li>
-          <a href="#awards">Awards</a>
+        <li className={activeLink === "awards" ? "active" : ""}>
+          <a href="#awards" onClick={() => handleLinkClick("awards")}>
+            <span className="nav-text">Awards</span>
+            <div className="nav-accent"></div>
+          </a>
         </li>
-        <li>
-          <a href="#contact">Contact</a>
+        <li className={activeLink === "contact" ? "active" : ""}>
+          <a href="#contact" onClick={() => handleLinkClick("contact")}>
+            <span className="nav-text">Contact</span>
+            <div className="nav-accent"></div>
+          </a>
         </li>
       </ul>
 
       <div className="app__navbar-login">
-        <a href="#login" className="flex items-center space-x-2">
-          <FaUser className="text-lg" />
+        <a href="#login" className="login-link">
+          <FaUser className="login-icon" />
           <span>Login</span>
+          <div className="link-accent"></div>
         </a>
         <div className="line" />
-        <a href="#book" className="nav-button flex items-center space-x-2">
-          <BsCalendarCheck className="text-lg" />
+        <a href="#book" className="nav-button" onClick={handleBookTable}>
+          <BsCalendarCheck className="button-icon" />
           <span>Book Table</span>
+          <div className="button-accent"></div>
         </a>
       </div>
 
-      <div className="lg:hidden">
+      <div className="mobile-toggle">
         <button
           onClick={() => setToggleMenu(!toggleMenu)}
-          className="text-white hover:text-[#D4AF37] transition-colors duration-300"
+          className="toggle-button"
         >
           {toggleMenu ? (
-            <MdOutlineRestaurantMenu className="h-8 w-8" />
+            <MdOutlineRestaurantMenu className="toggle-icon" />
           ) : (
-            <GiHamburgerMenu className="h-8 w-8" />
+            <GiHamburgerMenu className="toggle-icon" />
           )}
         </button>
       </div>
@@ -82,36 +113,76 @@ const Navbar = () => {
             onClick={() => setToggleMenu(false)}
           />
           <div className="mobile-menu mobile-menu-enter">
-            <div className="flex justify-end mb-8">
+            <div className="mobile-header">
+              <div className="mobile-logo">
+                <FaUtensils className="mobile-logo-icon" />
+                <h2 className="mobile-logo-text">LANGANO</h2>
+              </div>
               <button
                 onClick={() => setToggleMenu(false)}
-                className="text-white hover:text-[#D4AF37] transition-colors duration-300"
+                className="mobile-close"
               >
-                <MdOutlineRestaurantMenu className="h-8 w-8" />
+                <MdOutlineRestaurantMenu className="close-icon" />
               </button>
             </div>
-            <div className="flex flex-col space-y-6">
-              <a href="#home" className="mobile-nav-link">
+            <div className="mobile-nav-links">
+              <a
+                href="#home"
+                className={`mobile-nav-link ${
+                  activeLink === "home" ? "active" : ""
+                }`}
+                onClick={() => handleLinkClick("home")}
+              >
                 Home
               </a>
-              <a href="#about" className="mobile-nav-link">
+              <a
+                href="#about"
+                className={`mobile-nav-link ${
+                  activeLink === "about" ? "active" : ""
+                }`}
+                onClick={() => handleLinkClick("about")}
+              >
                 About
               </a>
-              <a href="#menu" className="mobile-nav-link">
+              <a
+                href="#menu"
+                className={`mobile-nav-link ${
+                  activeLink === "menu" ? "active" : ""
+                }`}
+                onClick={() => handleLinkClick("menu")}
+              >
                 Menu
               </a>
-              <a href="#awards" className="mobile-nav-link">
+              <a
+                href="#awards"
+                className={`mobile-nav-link ${
+                  activeLink === "awards" ? "active" : ""
+                }`}
+                onClick={() => handleLinkClick("awards")}
+              >
                 Awards
               </a>
-              <a href="#contact" className="mobile-nav-link">
+              <a
+                href="#contact"
+                className={`mobile-nav-link ${
+                  activeLink === "contact" ? "active" : ""
+                }`}
+                onClick={() => handleLinkClick("contact")}
+              >
                 Contact
               </a>
-              <div className="pt-6 border-t border-gray-700">
-                <a href="#login" className="mobile-nav-link">
-                  Login
+              <div className="mobile-auth">
+                <a href="#login" className="mobile-login">
+                  <FaUser className="mobile-icon" />
+                  <span>Login</span>
                 </a>
-                <a href="#book" className="mobile-nav-link">
-                  Book Table
+                <a
+                  href="#book"
+                  className="mobile-book"
+                  onClick={handleBookTable}
+                >
+                  <BsCalendarCheck className="mobile-icon" />
+                  <span>Book Table</span>
                 </a>
               </div>
             </div>

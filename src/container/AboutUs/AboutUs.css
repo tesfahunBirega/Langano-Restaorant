@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
   opacity: 0.05;
+  pointer-events: none;
 }
 
 .overlay-image {
@@ -23,6 +24,7 @@
   height: 320px;
   object-fit: contain;
   animation: rotate 20s linear infinite;
+  filter: brightness(0.8) contrast(1.2);
 }
 
 .floating-accent {
@@ -36,6 +38,7 @@
     transparent 70%
   );
   animation: float 6s ease-in-out infinite;
+  filter: blur(10px);
 }
 
 .floating-accent.left {
@@ -47,6 +50,38 @@
   bottom: 20%;
   right: 5%;
   animation-delay: -3s;
+}
+
+/* Floating Spice Icons */
+.floating-spice {
+  position: absolute;
+  color: #d4af37;
+  opacity: 0.2;
+  animation: floatSpice 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+.spice-icon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
+}
+
+.spice1 {
+  top: 15%;
+  left: 10%;
+  animation-delay: -1s;
+}
+
+.spice2 {
+  top: 60%;
+  right: 15%;
+  animation-delay: -4s;
+}
+
+.spice3 {
+  bottom: 20%;
+  left: 20%;
+  animation-delay: -2s;
 }
 
 .about-content {
@@ -80,9 +115,11 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(212, 175, 55, 0.15);
   border-radius: 20px;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .content-wrapper::before {
@@ -111,15 +148,27 @@
   margin-bottom: 2rem;
 }
 
+.header-accent {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  opacity: 0.7;
+}
+
 /* Typography */
 .subtitle {
   color: #d4af37;
   font-size: 1.2rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", serif;
   letter-spacing: 3px;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
   opacity: 0.9;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
 .title {
@@ -132,11 +181,49 @@
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+.highlight {
+  color: #d4af37;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  opacity: 0.5;
+}
+
 .content-divider {
   width: 80px;
   height: 2px;
   background: linear-gradient(90deg, transparent, #d4af37, transparent);
   margin: 1.5rem auto;
+  position: relative;
+}
+
+.content-divider::before,
+.content-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  background: #d4af37;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.content-divider::before {
+  left: -3px;
+}
+
+.content-divider::after {
+  right: -3px;
 }
 
 .decorative-spoon {
@@ -145,6 +232,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .decorative-spoon img {
@@ -155,7 +243,7 @@
 }
 
 .content-wrapper:hover .decorative-spoon img {
-  transform: rotate(5deg);
+  transform: rotate(5deg) scale(1.1);
 }
 
 .description {
@@ -163,7 +251,7 @@
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 2rem;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", serif;
 }
 
 /* Button Styles */
@@ -171,7 +259,7 @@
   background: transparent;
   border: none;
   color: #d4af37;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", serif;
   font-size: 1.1rem;
   font-weight: 600;
   padding: 0.5rem 1.5rem;
@@ -196,6 +284,16 @@
   transition: width 0.4s ease;
 }
 
+.button-accent {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
 .about-button:hover {
   color: #ffffff;
   transform: translateY(-2px);
@@ -203,6 +301,11 @@
 
 .about-button:hover .button-underline {
   width: 100%;
+}
+
+.about-button:hover .button-accent {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* Center Knife Section */
@@ -227,6 +330,19 @@
   opacity: 0.3;
 }
 
+.knife-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    rgba(212, 175, 55, 0.1),
+    transparent 70%
+  );
+  filter: blur(20px);
+  animation: pulse 3s ease-in-out infinite;
+}
+
 .knife-image {
   height: 100%;
   object-fit: contain;
@@ -234,8 +350,26 @@
   transition: transform 0.5s ease;
 }
 
+.knife-reflection {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
+}
+
 .knife-container:hover .knife-image {
   transform: translateY(-10px);
+}
+
+.knife-container:hover .knife-reflection {
+  transform: translateY(0);
 }
 
 /* Corner Accents */
@@ -244,6 +378,7 @@
   width: 100px;
   height: 100px;
   opacity: 0.1;
+  transition: opacity 0.3s ease;
 }
 
 .corner-accent.top-left {
@@ -274,6 +409,30 @@
   border-right: 2px solid #d4af37;
 }
 
+.about-section:hover .corner-accent {
+  opacity: 0.3;
+}
+
+/* Floating Particles */
+.floating-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  background: #d4af37;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: floatParticle 10s ease-in-out infinite;
+  animation-delay: var(--delay);
+  left: var(--left);
+  top: var(--top);
+}
+
 /* Animations */
 @keyframes float {
   0%,
@@ -282,6 +441,40 @@
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+
+@keyframes floatSpice {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+@keyframes floatParticle {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.3;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.1);
   }
 }
 
@@ -329,7 +522,8 @@
     margin: 2rem 0;
   }
 
-  .floating-accent {
+  .floating-accent,
+  .floating-spice {
     display: none;
   }
 }
